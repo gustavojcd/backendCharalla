@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 const fsPromises = fs.promises
 
 class Contenedor {
@@ -28,12 +28,16 @@ class Contenedor {
     save(params) {
         this.readProductsTxt(this.filename)
         this.prods.push(params)
-        if (this.prods.length === 1) {
-            this.prods[0].id = 1;
-        } else {
-            this.prods[this.prods.length - 1].id = this.prods[this.prods.length - 2].id + 1
-        }
         this.writeProductsTxt(this.filename);
+    }
+    update(updateProd, index) {
+        this.prods.splice(index, 1, updateProd)
+        this.writeProductsTxt(this.filename)
+    }
+    getIndex(id) {
+        this.readProductsTxt(this.filename);
+        const index = this.prods.findIndex((prod) => prod.id === id)
+        return index
     }
     getById(id) {
         this.readProductsTxt(this.filename);
