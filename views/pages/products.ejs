@@ -1,0 +1,14 @@
+<%- include('../partials/header'); %>
+
+<%- include('../partials/navbar'); %>
+
+<% if(!allProds.length) { %>
+    <h1>No hay Productos Disponibles</h1>
+<% } else { %>
+    <h1>Productos Disponibles</h1>
+    <div class="container-fluid d-flex flex-wrap">
+        <%- include('../components/cardProduct'); %>
+    </div>
+<% } %>
+
+<%- include('../partials/footer'); %>

@@ -1,0 +1,10 @@
+<% allProds.forEach(prod=> { %>
+    <div class="card mt-5 mx-auto" style="width: 18rem;">
+        <img src=<%=prod.img%> class="card-img-top" alt="">
+        <div class="card-body">
+            <h5 class="card-title"><%=prod.title%></h5>
+            <p class="card-text">STOCK: <%=prod.stock%></p>
+            <p class="card-text">PRECIO: $ <%=prod.price%></p>
+        </div>
+    </div>
+<% }); %>
