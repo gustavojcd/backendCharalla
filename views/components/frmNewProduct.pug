@@ -1,0 +1,14 @@
+form(action='/productos' method='post')
+    .mb-3
+        label.form-label(for='title') Titulo
+        input#title.form-control(type='text' name='title')
+    .mb-3
+        label.form-label(for='stock') Stock
+        input#stock.form-control(type='text' name='stock')
+    .mb-3
+        label.form-label(for='price') Precio
+        input#price.form-control(type='text' name='price')
+    .mb-3
+        label.form-label(for='img') url de la imagen
+        input#img.form-control(type='text' name='img')
+    button.btn.btn-primary(type='submit') Guardar Producto
