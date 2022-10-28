@@ -1,0 +1,13 @@
+h2.mx-auto Centro de Mensajes
+form#frmChat
+    div.mb-3
+        label.form-label(for='email') Ingresa tu Email:
+        input#txtEmail.form-control(type='email' placeholder='nombre@mail.com' required)
+    div.mb-3
+        textarea#allMessages.form-control(rows='3' readonly)
+    div.mb-3
+        label.form-label(for='mensaje') Escribe tu Mensaje:
+        input#txtMessage.form-control(type='text' placeholder='mensaje' required)
+    div.mb-3
+        button#btnSendMessage.btn.btn-primary.mb-3(type='submit') Enviar Mensaje
+    

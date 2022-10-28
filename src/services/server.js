@@ -1,7 +1,12 @@
 const express = require('express')
 const router = require('../routes/main')
-const app = express()
+const http = require('http')
 const path = require('path')
+const { myWSServer } = require('./socket')
+
+
+const app = express()
+const myHTTPServer = http.Server(app)
 
 app.use(express.static('public'));
 
@@ -12,6 +17,10 @@ app.set('views', viewsFolderPath)
 app.set('view engine', 'pug')
 //termina la configuracion de Pug
 
-app.use('/', router)
+//inicia la configuracion de SocketIo
+myWSServer(myHTTPServer);
+//-------------------------------------
 
-module.exports = app;
+app.use('/', router);
+
+module.exports = myHTTPServer;
