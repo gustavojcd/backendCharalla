@@ -2,8 +2,9 @@ const SocketIo = require('socket.io')
 const { Contenedor } = require('../contenedor.js')
 const productos = new Contenedor('src/data/products.json');
 const { formatMessages } = require('../utils/messages');
+const { chat } = require('../messages')
 let io;
-const allMessages = []
+
 const myWSServer = (server) => {
     io = SocketIo(server)
     io.on('connection', (socket) => {
@@ -20,16 +21,17 @@ const myWSServer = (server) => {
         });
 
         //send all messages to clients
-        socket.on('allMessages', () => {
+        socket.on('allMessages', async() => {
+            const allMessages = await chat.getData()
             allMessages.forEach((msg) => {
-                socket.emit('chatMessages', formatMessages(msg))
+                socket.emit('chatMessages', msg)
             })
         })
 
         //receive a message and store it in array of messages (allMessages[]) and send it to clients
-        socket.on('newMessage',(nMsg)=>{
-            allMessages.push(nMsg)
+        socket.on('newMessage', async (nMsg) => {
             io.emit('chatMessages', formatMessages(nMsg))
+            await chat.saveMessage(formatMessages(nMsg));
         })
     })
 }

@@ -1,13 +1,38 @@
-h1{
+h1 {
     text-align: center;
     margin-top: 3%;
 }
-h2{
+
+h2 {
     text-align: center;
 }
-#mensajes{
-    resize: none;
+
+#allMessages {
+    border-style:inset;
+    height: 200px;
 }
-form{
+
+form {
     margin: 0% 20% 0% 20%;
+}
+
+.formatedMessage {
+    display: flex;
+}
+
+.email {
+    color: blue;
+    font-weight: bold;
+    margin: 0 0.5% 0 0.5%;
+}
+
+.time {
+    color: red;
+    margin: 0 0.5% 0 0.5%;
+}
+
+.mensaje {
+    color: green;
+    font-style: italic;
+    margin: 0 0.5% 0 0.5%;
 }

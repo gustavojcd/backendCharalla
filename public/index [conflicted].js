@@ -86,21 +86,18 @@ socket.on('chatMessages', (msg) => {
     const formatedMessage = document.createElement('p')
 
     email.innerText = msg.email;
-    email.classList.add('email')
-
-    time.innerText = `[${msg.time}]:`;
-    time.classList.add('time')
-
+    email.style.color = 'blue'
+    time.innerText = msg.time;
+    time.style.color = 'red'
     mensaje.innerText = msg.msg;
-    mensaje.classList.add('mensaje')
-
-    formatedMessage.classList.add('formatedMessage')    
+    mensaje.style.color = 'green'
 
     formatedMessage.appendChild(email);
     formatedMessage.appendChild(time);
     formatedMessage.appendChild(mensaje);
 
     allMessages.appendChild(formatedMessage);
-    allMessages.scrollTop = allMessages.scrollHeight
+    //allMessages.value += `${msg.email} [${msg.time}] : ${msg.msg} \n`
+    //allMessages.scrollTop = allMessages.scrollHeight
 
 })
