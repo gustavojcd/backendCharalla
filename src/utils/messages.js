@@ -4,7 +4,7 @@ const formatMessages = (data) => {
   const { email, msg } = data;
   return {
     email,
-    time: moment().format('D/M/YYYY h:mm a'),
+    time: String(moment().format('D/M/YYYY h:mm a')),
     msg,
   };
 };
