@@ -1,12 +1,10 @@
 const express = require('express')
 const { Contenedor } = require('../contenedor.js')
-const rutasProductos = express.Router()
 const productos = new Contenedor('src/data/products.json');
 const { v4: uuidv4 } = require('uuid');
 const { socketEmit } = require('../services/socket')
 
-rutasProductos.use(express.json());
-rutasProductos.use(express.urlencoded({ extended: true }));
+const rutasProductos = express.Router()
 
 rutasProductos.route('/')
     .get((req, res) => {
